@@ -18,6 +18,10 @@ target_compile_features(example_lambda PUBLIC cxx_std_17)
 target_compile_features(example_regex PUBLIC cxx_std_17)
 target_compile_features(stream_to_log_file PUBLIC cxx_std_17)
 
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    target_compile_options(example_regex PRIVATE "-fvisibility=hidden")
+endif()
+
 target_link_libraries(example_regex PRIVATE ${Boost_LIBRARIES} Boost::regex)
 
 set_target_properties(example_lambda PROPERTIES CXX_EXTENSIONS OFF)
