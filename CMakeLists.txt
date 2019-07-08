@@ -18,6 +18,10 @@ target_compile_features(example_lambda PUBLIC cxx_std_17)
 target_compile_features(example_regex PUBLIC cxx_std_17)
 target_compile_features(stream_to_log_file PUBLIC cxx_std_17)
 
+target_compile_options(example_lambda PRIVATE -Wall -Wextra -Wmost -pedantic -Wconversion -Wfloat-equal)
+target_compile_options(example_regex PRIVATE -Wall -Wextra -Wmost -pedantic -Wconversion -Wfloat-equal)
+target_compile_options(stream_to_log_file PRIVATE -Wall -Wextra -Wmost -pedantic -Wconversion -Wfloat-equal -Wno-sign-conversion)
+
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(example_regex PRIVATE "-fvisibility=hidden")
 endif()
