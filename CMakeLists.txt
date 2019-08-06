@@ -22,7 +22,7 @@ foreach(target ${ALL_TARGETS})
     target_include_directories(${target} PRIVATE ${Boost_INCLUDE_DIRS})
 
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        target_compile_options(${target} PRIVATE -Wall -Wextra -Wmost -pedantic -Wconversion -Wfloat-equal -Wold-style-cast -fcolor-diagnostics)
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wmost -pedantic -Wfloat-equal -fcolor-diagnostics)
     elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
         target_compile_options(${target} PRIVATE /W4)
     endif()
