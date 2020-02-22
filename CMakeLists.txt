@@ -3,11 +3,12 @@ project("Boost" LANGUAGES CXX)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-find_package(Boost REQUIRED COMPONENTS regex)
+find_package(Boost REQUIRED COMPONENTS regex thread)
 
 set(ALL_TARGETS
     example_lambda
     example_regex
+    example_threads
     stream_to_log_file
 )
 
@@ -29,3 +30,4 @@ foreach(target ${ALL_TARGETS})
 endforeach()
 
 target_link_libraries(example_regex PRIVATE Boost::regex)
+target_link_libraries(example_threads PRIVATE Boost::thread)
